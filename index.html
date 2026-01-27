@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claudio | Desenvolvedor Fullstack</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Ubuntu', sans-serif; }
+    code { font-family: 'Fira Code', monospace; }
+
+    /* Cards */
+    .card {
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.08);
+    }
+    .dark .card:hover {
+      box-shadow: 0 20px 40px rgba(0,0,0,.4);
+    }
+
+    /* Reveal (seções como bloco) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Reveal item (mantido só para contato) */
+    .reveal-item {
+      opacity: 0;
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .reveal-left { transform: translateX(-24px); }
+    .reveal-right { transform: translateX(24px); }
+    .reveal-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
+
+  <script>
+    tailwind.config = { darkMode: 'class' }
+
+    const stack = [
+      { name:'React', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', class:'text-cyan-500' },
+      { name:'Next.js', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg', class:'dark:invert' },
+      { name:'Vue', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg', class:'text-green-500' },
+      { name:'Nuxt.js', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg', class:'text-green-600' },
+      { name:'Node.js', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', class:'text-green-600' },
+      { name:'JavaScript', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg', class:'text-yellow-400' },
+      { name:'TypeScript', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg', class:'text-blue-600' },
+      { name:'PHP', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg', class:'text-indigo-500' },
+      { name:'Laravel', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg', class:'text-red-500' },
+      { name:'Python', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', class:'text-yellow-500' },
+      { name:'Django', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg', class:'dark:invert' },
+      { name:'Tailwind CSS', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', class:'text-cyan-400' },
+      { name:'Bootstrap', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg', class:'text-purple-600' },
+      { name:'Sass', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg', class:'text-pink-500' },
+      { name:'GraphQL', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg', class:'text-pink-500' },
+      { name:'PostgreSQL', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg', class:'text-blue-700' },
+      { name:'MySQL', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg', class:'text-blue-600' },
+      { name:'SQLite', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg', class:'text-blue-600' },
+      { name:'Redis', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg', class:'text-red-600' },
+      { name:'Docker', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg', class:'text-sky-500' },
+    ]
+
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark')
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light')
+      themeIcon.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙'
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if ((localStorage.getItem('theme') || 'dark') === 'dark') {
+        document.documentElement.classList.add('dark')
+        themeIcon.textContent = '☀️'
+      }
+
+      const container = document.getElementById('stack-list')
+
+      // 🔴 stacks SEM reveal-item (bloco único)
+      stack.forEach(tech => {
+        const card = document.createElement('div')
+        card.className = 'card p-5 bg-white dark:bg-white/10 border rounded-xl flex flex-col items-center gap-3'
+
+        const img = document.createElement('img')
+        img.src = tech.svg
+        img.alt = tech.name
+        img.className = `w-12 h-12 ${tech.class}`
+
+        const label = document.createElement('span')
+        label.textContent = tech.name
+        label.className = 'font-medium text-sm'
+
+        card.append(img, label)
+        container.appendChild(card)
+      })
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add('visible')
+          observer.unobserve(entry.target)
+        })
+      }, { threshold: 0.15 })
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+
+      // contato mantém stagger
+      document.querySelectorAll('[data-stagger="true"]').forEach(section => {
+        observer.observe(section)
+        const items = section.querySelectorAll('.reveal-item')
+        items.forEach((item, i) => {
+          setTimeout(() => item.classList.add('visible'), i * 120)
+        })
+      })
+    })
+  </script>
+</head>
+
+<body class="bg-white text-gray-900 dark:bg-black dark:text-gray-100 transition-colors">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 backdrop-blur bg-white/80 dark:bg-black/80 border-b border-gray-200 dark:border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <span class="text-2xl font-bold text-gray-400">{ 
+        <span class="bg-gradient-to-r from-blue-500 to-purple-500
+  bg-clip-text text-transparent">claudio</span>: <span class="text-emerald-500">dev</span>; }</span>
+
+      <div class="flex gap-4 items-center font-bold">
+        <a href="#stack" class="text-sm hover:text-indigo-600 dark:hover:text-cyan-400">Stack</a>
+        <a href="#contato" class="text-sm hover:text-indigo-600 dark:hover:text-cyan-400">Contato</a>
+        <button onclick="toggleTheme()" class="p-2 rounded-lg border border-gray-200 dark:border-gray-500">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="max-w-7xl mx-auto min-h-screen flex items-center justify-center pt-24 px-6">
+    <div class="text-center reveal">
+      <p class="tracking-widest text-sm text-indigo-600 dark:text-indigo-400">Fullstack Developer</p>
+      <h1 class="text-7xl font-bold my-4 text-indigo-600 dark:text-cyan-400">Eu faço a web funcionar.</h1>
+      <p class="text-gray-600 dark:text-gray-400">Às vezes até na sexta-feira</p>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" class="max-w-7xl mx-auto py-20 px-6 bg-gray-50 dark:bg-white/5 reveal">
+    <div class="w-full">
+      <h2 class="text-4xl font-bold mb-10">Stack Técnico</h2>
+      <div id="stack-list"
+           class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="max-w-7xl mx-auto py-20 px-6 reveal">
+    <div class="w-full text-center">
+      <h2 class="text-4xl font-bold mb-6">Contato</h2>
+      <div class="flex justify-center gap-4" data-stagger="true">
+        <a href="https://github.com/claudiotfi" target="_blank" class="reveal-item reveal-left px-6 py-3 border rounded-lg">🐙 GitHub</a>
+        <a href="https://linkedin.com/in/claudio-tosetto-filho" target="_blank" class="reveal-item reveal-right px-6 py-3 border rounded-lg">💼 LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
