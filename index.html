@@ -71,27 +71,33 @@
     tailwind.config = { darkMode: 'class' }
 
     const stack = [
-      { name: 'React', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', class: 'text-cyan-500' },
-      { name: 'Next', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg', class: 'dark:invert' },
-      { name: 'Vue', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg', class: 'text-green-500' },
-      { name: 'Nuxt', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg', class: 'text-green-600' },
-      { name: 'Node', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', class: 'text-green-600' },
-      { name: 'JavaScript', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg', class: 'text-yellow-400' },
-      { name: 'TypeScript', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg', class: 'text-blue-600' },
-      { name: 'PHP', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg', class: 'text-indigo-500' },
-      { name: 'Laravel', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg', class: 'text-red-500' },
-      { name: 'Python', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', class: 'text-yellow-500' },
-      { name: 'Django', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg', class: 'dark:invert' },
-      { name: 'Tailwind', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', class: 'text-cyan-400' },
-      { name: 'Bootstrap', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg', class: 'text-purple-600' },
-      { name: 'Sass', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg', class: 'text-pink-500' },
-      { name: 'GraphQL', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg', class: 'text-pink-500' },
-      { name: 'PostgreSQL', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg', class: 'text-blue-700' },
-      { name: 'MySQL', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg', class: 'text-blue-600' },
-      { name: 'SQLite', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg', class: 'text-blue-600' },
-      { name: 'Redis', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg', class: 'text-red-600' },
-      { name: 'Docker', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg', class: 'text-sky-500' },
-    ]
+  { name: 'React', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', class: 'text-cyan-500' },
+  { name: 'Next', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg', class: 'dark:invert' },
+  { name: 'Vue', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg', class: 'text-green-500' },
+  { name: 'Nuxt', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg', class: 'text-green-600' },
+  { name: 'Node', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', class: 'text-green-600' },
+  { name: 'NestJS', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg', class: 'text-red-600' },
+
+  { name: 'JavaScript', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg', class: 'text-yellow-400' },
+  { name: 'TypeScript', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg', class: 'text-blue-600' },
+
+  { name: 'PHP', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg', class: 'text-indigo-500' },
+  { name: 'Laravel', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg', class: 'text-red-500' },
+
+  { name: 'Python', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', class: 'text-yellow-500' },
+  { name: 'Django', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg', class: 'dark:invert' },
+
+  { name: 'Tailwind', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', class: 'text-cyan-400' },
+  { name: 'GraphQL', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg', class: 'text-pink-500' },
+
+  { name: 'PostgreSQL', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg', class: 'text-blue-700' },
+  { name: 'MySQL', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg', class: 'text-blue-600' },
+  { name: 'Redis', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg', class: 'text-red-600' },
+
+  { name: 'Docker', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg', class: 'text-sky-500' },
+  { name: 'Linux', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg', class: 'text-gray-700 dark:text-gray-200' },
+  { name: 'Nginx', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg', class: 'text-green-700' },
+]
 
     function toggleTheme() {
       document.documentElement.classList.toggle('dark')
