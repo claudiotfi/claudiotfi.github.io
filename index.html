@@ -61,17 +61,17 @@
 
     const stack = [
       { name:'React', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', class:'text-cyan-500' },
-      { name:'Next.js', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg', class:'dark:invert' },
+      { name:'Next', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg', class:'dark:invert' },
       { name:'Vue', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg', class:'text-green-500' },
-      { name:'Nuxt.js', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg', class:'text-green-600' },
-      { name:'Node.js', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', class:'text-green-600' },
+      { name:'Nuxt', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg', class:'text-green-600' },
+      { name:'Node', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', class:'text-green-600' },
       { name:'JavaScript', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg', class:'text-yellow-400' },
       { name:'TypeScript', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg', class:'text-blue-600' },
       { name:'PHP', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg', class:'text-indigo-500' },
       { name:'Laravel', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg', class:'text-red-500' },
       { name:'Python', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', class:'text-yellow-500' },
       { name:'Django', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg', class:'dark:invert' },
-      { name:'Tailwind CSS', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', class:'text-cyan-400' },
+      { name:'Tailwind', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', class:'text-cyan-400' },
       { name:'Bootstrap', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg', class:'text-purple-600' },
       { name:'Sass', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg', class:'text-pink-500' },
       { name:'GraphQL', svg:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg', class:'text-pink-500' },
@@ -99,12 +99,12 @@
       // 🔴 stacks SEM reveal-item (bloco único)
       stack.forEach(tech => {
         const card = document.createElement('div')
-        card.className = 'card p-5 bg-white dark:bg-white/10 border rounded-xl flex flex-col items-center gap-3'
+        card.className = 'card px-5 py-2 md:py-5 bg-white dark:bg-white/10 border dark:border-gray-500 rounded-xl flex flex-row md:flex-col items-center gap-3'
 
         const img = document.createElement('img')
         img.src = tech.svg
         img.alt = tech.name
-        img.className = `w-12 h-12 ${tech.class}`
+        img.className = `w-6 h-6 md:w-12 md:h-12 ${tech.class}`
 
         const label = document.createElement('span')
         label.textContent = tech.name
@@ -138,15 +138,15 @@
     <body class="bg-white text-gray-900 dark:bg-black dark:text-gray-100 transition-colors">
         <!-- NAV -->
         <nav class="fixed top-0 w-full z-50 backdrop-blur bg-white/80 dark:bg-black/80 border-b border-gray-200 dark:border-white/10">
-            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
                 <span class="text-2xl font-bold text-gray-400">
                     {
                     <span class="bg-gradient-to-r from-blue-500 to-purple-500
   bg-clip-text text-transparent">claudio</span>:
                     <span class="text-emerald-500">dev</span>; }</span>
                 <div class="flex gap-4 items-center font-bold">
-                    <a href="#stack" class="text-sm hover:text-indigo-600 dark:hover:text-cyan-400">Stack</a>
-                    <a href="#contato" class="text-sm hover:text-indigo-600 dark:hover:text-cyan-400">Contato</a>
+                    <a href="#stack" class="hidden md:block text-sm hover:text-indigo-600 dark:hover:text-cyan-400">Stack</a>
+                    <a href="#contato" class="hidden md:blocktext-sm hover:text-indigo-600 dark:hover:text-cyan-400">Contato</a>
                     <button onclick="toggleTheme()" class="p-2 rounded-lg border border-gray-200 dark:border-gray-500">
                         <span id="themeIcon">🌙</span>
                     </button>
@@ -174,7 +174,7 @@
                 <h2 class="text-4xl font-bold mb-6">Contato</h2>
                 <div class="flex justify-center gap-4" data-stagger="true">
                     <!-- GitHub -->
-                    <a href="https://github.com/claudiotfi" target="_blank" class="reveal-item reveal-left px-6 py-3 border rounded-lg flex items-center gap-3
+                    <a href="https://github.com/claudiotfi" target="_blank" class="reveal-item reveal-left px-6 py-3 border dark:border-gray-500 rounded-lg flex items-center gap-3 w-1/2 md:w-auto
            hover:bg-black hover:text-white transition-colors">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +188,7 @@
                         <span>GitHub</span>
                     </a>
                     <!-- LinkedIn -->
-                    <a href="https://linkedin.com/in/claudio-tosetto-filho" target="_blank" class="reveal-item reveal-right px-6 py-3 border rounded-lg flex items-center gap-3
+                    <a href="https://linkedin.com/in/claudio-tosetto-filho" target="_blank" class="reveal-item reveal-right px-6 py-3 border dark:border-gray-500 rounded-lg flex items-center gap-3 w-1/2 md:w-auto
            hover:bg-[#0A66C2] hover:text-white transition-colors">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
